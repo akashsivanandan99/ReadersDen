@@ -1,10 +1,46 @@
+{% load static %}
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block extra_head %}
     <meta charset="UTF-8">
+             <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+		<!-- Google Fonts -->
+		<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+		<!-- MDB -->
+		<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
+  rel="stylesheet"
+/>
     <title>Home</title>
+    {% endblock %}
 </head>
 <body>
-<h1> Landing Page </h1>
+{% block content %}
+    <header>
+    {% if user.is_authenticated %}
+    {% include 'components/navbar_new.html' %}
+        {% else %}
+        {% include 'navbar.html' %}
+    {% endif %}
+
+
+    </header>
+    {% include 'components/carousel.html' %}
+    <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+></script>
+{% endblock %}
 </body>
 </html>
