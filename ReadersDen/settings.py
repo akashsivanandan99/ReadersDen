@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     'website',
+
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [

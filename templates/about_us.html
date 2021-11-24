@@ -3,10 +3,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block extra_head %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>About Us</title>
+    {% endblock %}
 </head>
 <body>
+{% block content %}
 
+    <header>
+     {% if user.is_authenticated %}
+    {% include 'components/navbar_new.html' %}
+        {% else %}
+        {% include 'navbar.html' %}
+    {% endif %}
+    </header>
+
+    <div class="bg-image">
+  <img
+    src="{% static 'images/library_image.jpg'%}"
+    class="img-fluid"
+    alt="Sample"
+  />
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <p class="text-white mb-0">Can you see me?</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
 </body>
 </html>
