@@ -22,11 +22,12 @@
   <div class="row">
     <div class="col-md-5 mx-auto my-4 text-center">
         <form>
+        {% csrf_token %}
 
 
   <!-- Text input -->
   <div class="form-outline m-4">
-    <input type="text" id="book-title" class="form-control" />
+    <input type="text" id="title" class="form-control" />
     <label class="form-label" for="form6Example3">Book Title</label>
   </div>
 
@@ -38,12 +39,12 @@
 
   <!-- Number input -->
   <div class="form-outline m-4">
-    <input type="number" id="form6Example6" class="form-control" />
-    <label class="form-label" for="form6Example6">ISBN number</label>
+    <input type="number" id="isbn" class="form-control" />
+    <label class="form-label" for="isbn">ISBN number</label>
   </div>
 
    <div  class = "form-outline m-4">
-      <select class="form-select" aria-label="Default select example" id = "author-select" >
+      <select class="form-select" aria-label="Default select example" id = "author" >
        <option value="" disabled selected>Choose author</option>
          {% for author in authors %}
              <option value = "{{ author.name }}">{{ author.name }}</option>
