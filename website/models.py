@@ -13,13 +13,13 @@ from .managers import CustomUserManager
 # Create your models here
 from django.urls import reverse
 
-ACTION = "ACTION"
-FANTASY = "FANTASY"
-THRILLER = "THRILLER"
-COMIC = "COMIC"
-HORROR = "HORROR"
-MYSTERY = "MYSTERY"
-OTHER = "OTHER"
+ACTION = "A"
+FANTASY = "F"
+THRILLER = "T"
+COMIC = "C"
+HORROR = "H"
+MYSTERY = "M"
+OTHER = "O"
 BOOK_GENRES = (
     (ACTION, "Action and adventure"),
     (FANTASY, "Fantasy"),
