@@ -139,4 +139,6 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 LOGIN_REDIRECT_URL = '/'
 
+ACCOUNT_FORMS = {'signup': 'website.forms.CustomSignupForm'}
+
 
