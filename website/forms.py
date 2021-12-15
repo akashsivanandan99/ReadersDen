@@ -6,3 +6,4 @@ class AddBookForm(forms.Form):
     summary = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
     isbn = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
     author = forms.CharField(widget=forms.TextInput(attrs={"class": "form-select"}))
+    genre = forms.CharField(widget=forms.TextInput(attrs={"class": "form-select"}))

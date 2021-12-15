@@ -28,5 +28,6 @@ def add_book_view(request):
             summary = form.cleaned_data['summary']
             isbn = form.cleaned_data['isbn']
             author = form.cleaned_data['author']
+            genre = form.cleaned_data['genre']
             book = Book()
     return render(request, "components/add_book_form.html", context)
