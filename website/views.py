@@ -2,11 +2,23 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
-from website.forms import AddBookForm
-from website.models import Author, Book, Genre
+from website.forms import AddBookForm, ContactForm
+from website.models import Author, Book, Genre, Contact
 
 
 def landing_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print("Form valid")
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            contact_message = Contact(email=email, name=name, message=message)
+            contact_message.save()
+        else:
+            print(form.errors)
+
     return render(request, "index_new.html")
 
 
