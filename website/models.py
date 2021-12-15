@@ -131,3 +131,12 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f' {self.name}'
+
+
+class Contact(models.Model):
+    email = models.EmailField(_('email address'))
+    name = models.CharField(max_length=30, blank=True, null=True)
+    message = models.CharField(max_length=200, blank=False, null=True)
+
+    def __str__(self):
+        return self.email
