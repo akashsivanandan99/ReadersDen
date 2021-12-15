@@ -1,7 +1,9 @@
- {% load static %}
+{% extends 'base.html' %}
+{% load static %}
  <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block extra_head %}
     <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -19,8 +21,10 @@
 />
     <meta charset="UTF-8">
     <title>Signup</title>
+    {% endblock %}
 </head>
 <body>
+{% block content %}
 <header>
 {% include 'navbar.html' %}
 </header>
@@ -30,51 +34,63 @@
     <div class="col-md-5 mx-auto my-4">
         {% load account socialaccount %}
         {% get_providers as socialaccount_providers %}
-        <form>
-  <!-- 2 column grid layout with text inputs for the first and last names -->
-  <div class="row mb-4">
-    <div class="col">
-      <div class="form-outline">
-        <input type="text" id="form6Example1" class="form-control" />
-        <label class="form-label" for="form6Example1">First name</label>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.errors }}
+      <div class="text-center mb-3">
+
+      <!-- Name input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="{{ form.name.name }}" name = "{{ form.name.name }}" class="form-control" />
+{#          {{ form.name }}#}
+        <label class="form-label" for="{{ form.name.name }}">Name</label>
       </div>
-    </div>
-    <div class="col">
-      <div class="form-outline">
-        <input type="text" id="form6Example2" class="form-control" />
-        <label class="form-label" for="form6Example2">Last name</label>
+
+      <!-- Phone Number input -->
+     <div class="row">
+         <div class="col">
+          <div class="form-outline mb-4">
+        <input type="text" id="prefix" name = "prefix" class="form-control" value="+91" readonly/>
       </div>
-    </div>
-  </div>
+         </div>
+     <div class="col">
+      <div class="form-outline mb-4">
+          <input type  = "tel" class="form-control" id = "{{ form.phone.name }}" name = {{ form.phone.name }} />
+{#          {{ form.phone }}#}
+          <label class="form-label" for="{{ form.phone.name }}">Phone Number</label>
+      </div>
+       </div>
+         </div>
 
-  <!-- Text input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form6Example3" class="form-control" />
-    <label class="form-label" for="form6Example3">Company name</label>
-  </div>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email"  class="form-control" name="{{ form.email.name }}" id="{{ form.email.name }}" />
+{#          {{ form.email }}#}
+        <label class="form-label" for="{{ form.email.name }}">Email</label>
+      </div>
 
-  <!-- Text input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" />
-    <label class="form-label" for="form6Example4">Address</label>
-  </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="{{ form.password1.name  }}" class="form-control" name = {{ form.password1.name }} />
+{#          {{ form.password1 }}#}
+        <label class="form-label" for="{{ form.password1.name }}">Password</label>
+      </div>
 
-  <!-- Email input -->
-  <div class="form-outline mb-4">
-    <input type="email" id="form6Example5" class="form-control" />
-    <label class="form-label" for="form6Example5">Email</label>
-  </div>
-
-  <!-- Number input -->
-  <div class="form-outline mb-4">
-    <input type="number" id="form6Example6" class="form-control" />
-    <label class="form-label" for="form6Example6">Phone</label>
-  </div>
+      <!-- Repeat Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="{{ form.password2.name }}" name = {{ form.password2.name }} class="form-control" />
+{#            {{ form.password2 }}#}
+        <label class="form-label" for="{{ form.password2.name }}">Repeat password</label>
+      </div>
 
 
-  <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Create account</button>
-</form>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-3">Create account</button>
+        <div class="text-center">
+        <p>Have an account? <a href="/accounts/login">Sign in</a></p>
+      </div>
+    </form>
   </div>
       </div>
 </div>
@@ -88,5 +104,6 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+{% endblock %}
 </body>
 </html>
