@@ -19,13 +19,15 @@ THRILLER = "THRILLER"
 COMIC = "COMIC"
 HORROR = "HORROR"
 MYSTERY = "MYSTERY"
+OTHER = "OTHER"
 BOOK_GENRES = (
     (ACTION, "Action and adventure"),
     (FANTASY, "Fantasy"),
     (COMIC, "Comics and graphic novels"),
     (HORROR, "Horror"),
     (MYSTERY, "Mystery"),
-    (THRILLER, "Thriller")
+    (THRILLER, "Thriller"),
+    (OTHER, "Other genres")
 )
 
 
