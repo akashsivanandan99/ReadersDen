@@ -36,6 +36,7 @@
 
     <form method = "post">
         {% csrf_token %}
+        {{ auth.errors }}
         {{ form.non_field_errors }}
         {{ form.source.errors }}
         {{ form.source }}
@@ -112,12 +113,15 @@
 <!-- Pills content -->
 </div>
 </div>
-
+    <footer style="margin:10px;">
+{% include 'footer.html' %}
+   </footer>
 <!-- MDB -->
 <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+
 {% endblock %}
 </body>
 </html>
